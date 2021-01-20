@@ -11,16 +11,16 @@ request.onload = function(){
    for(var i = 0;i<countrydata.length;i++)
    {
         temp = countrydata[i].latlng;
-        la = temp[0];
+        la = temp[0]
         lon = temp[1];
-       // console.log(lat,lon);
+      // console.log(la,lon);
        
         var req = new XMLHttpRequest();
-        req.open('GET','http://api.openweathermap.org/data/2.5/weather?lat=%la%lon=&lo&appid=06d1ca1ab9695828efbfb2050ed9dad6',true);
+        req.open('GET',`http://api.openweathermap.org/data/2.5/weather?lat=${la}&lon=${lon}&appid=06d1ca1ab9695828efbfb2050ed9dad6`,true);
         req.send();
         req.onload = function(){
             var weatherdata = JSON.parse(this.response);
-            console.log(req);
+            console.log(weatherdata.main.temp);
             
         };//end of function
                 
